@@ -25,8 +25,12 @@ public class HenriqueDeMoraisPorto {
             y=v;
             temp++;
         }
-        System.out.println(v);
-        
+        if (n==1){
+            System.out.println(y);
+        }
+        else{
+            System.out.println(v);
+        }
         
     }
 }

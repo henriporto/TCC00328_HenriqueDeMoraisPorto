@@ -16,7 +16,7 @@ public class HenriqueDeMoraisPorto {
         int n = leitor.nextInt();
         int temp=1;
         int i=2;
-        if (n!=1 && n!=0){ 
+        if (n!=1 && n!=0 && n>0){ 
             while(i<n && temp!=0){
                 if(n%i==0){
                     System.out.println("Não é primo!");

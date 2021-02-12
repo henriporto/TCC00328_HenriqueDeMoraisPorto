@@ -15,12 +15,12 @@ public class HenriqueDeMoraisPorto {
         Scanner la = new Scanner(System.in);
         int x = la.nextInt();
         int y = la.nextInt();
-        int resto;
-        do{ 
+        int resto=1;
+        while(y>0){ 
             resto = x%y;
             x=y;
             y=resto;
-        }while(resto>0);
+        }
         System.out.println(x);
         
     }

@@ -7,11 +7,11 @@ public class HenriqueDeMoraisPorto {
         int n = ola.nextInt();
         int temp=1;
         
-        int a=0;
-        do{
+        int a=1;
+        while(n>a){
             a++;
             temp=temp*a;
-        }while(n>a);
+        }
         System.out.println(temp);
     }
 }

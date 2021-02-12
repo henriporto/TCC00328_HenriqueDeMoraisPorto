@@ -5,10 +5,22 @@
  */
 package uff.ic.lleme.tcc00328.s20201.exercicios.exercicio6;
 
-/**
- *
- * @author HeMp2
- */
+import java.util.Scanner;
 public class HenriqueDeMoraisPorto {
+    public static void main(String args[]){
+        
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        System.out.println(pii(n));
+    }
+    public static double pii(int n){
+        double resultado = 0;
+        int i=0;
+        while (i<=n-1){
+            resultado +=  (Math.pow(-1, i)) / ((2*i) + 1);
+            i++;
+        }
+        return (4*resultado);
+    }
     
 }
