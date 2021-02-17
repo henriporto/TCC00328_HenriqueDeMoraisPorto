@@ -10,25 +10,24 @@ package uff.ic.lleme.tcc00328.s20201.exercicios.exercicio9;
  * @author HeMp2
  */
 import java.util.Scanner;
+
 public class HenriqueDeMoraisPorto {
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
-        int v=0;
-        int x =0;
-        int y =1;
-        for(int temp=1; n>temp; temp++){
-            v= y+x;
-            x=y;
-            y=v;
+        int v = 0;
+        int x = 0;
+        int y = 1;
+        for (int temp = 1; n > temp; temp++) {
+            v = y + x;
+            x = y;
+            y = v;
         }
-        if (n==1){
+        if (n == 1)
             System.out.println(y);
-        }
-        else{
+        else
             System.out.println(v);
-        }
-        
-        
+
     }
 }

@@ -10,18 +10,20 @@ package uff.ic.lleme.tcc00328.s20201.exercicios.exercicio3;
  * @author HeMp2
  */
 import java.util.Scanner;
+
 public class HenriqueDeMoraisPorto {
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         Scanner la = new Scanner(System.in);
         int x = la.nextInt();
         int y = la.nextInt();
-        int resto=1;
-        while(y>0){ 
-            resto = x%y;
-            x=y;
-            y=resto;
+        int resto = 1;
+        while (y > 0) {
+            resto = x % y;
+            x = y;
+            y = resto;
         }
         System.out.println(x);
-        
+
     }
 }

@@ -10,31 +10,28 @@ package uff.ic.lleme.tcc00328.s20201.exercicios.exercicio4;
  * @author HeMp2
  */
 import java.util.Scanner;
+
 public class HenriqueDeMoraisPorto {
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
         int n = leitor.nextInt();
-        int temp=1;
-        int i=2;
-        if (n!=1 && n!=0 && n>0){ 
-            while(i<n && temp!=0){
-                if(n%i==0){
+        int temp = 1;
+        int i = 2;
+        if (n != 1 && n != 0 && n > 0) {
+            while (i < n && temp != 0) {
+                if (n % i == 0) {
                     System.out.println("Não é primo!");
-                    temp=0;
+                    temp = 0;
                 }
                 i++;
             }
-            if (temp==0){
-            }
-            else{
+            if (temp == 0) {
+            } else
                 System.out.println("É primo!");
-            }
-        }
-        else{System.out.println("Não é primo!");
-        }
-    
-    
-    
+        } else
+            System.out.println("Não é primo!");
+
     }
-    
+
 }
