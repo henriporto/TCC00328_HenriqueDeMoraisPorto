@@ -8,19 +8,17 @@ import java.util.Scanner;
 
 public class HenriqueDeMoraisPorto {
     public static void main(String[] args){
-        int[] vet = new int[50];
-        int contador=0;
-        int i=0;
-        while(contador!=50){
-            if (primo(i)){
-                vet[contador] = i;
-                contador++;
+        int i=1;
+        long a=1;
+        while(i<=50){
+            if(primo(i)){
+                a = a * i;
             }
+            
             i++; 
         }
-        for (int b=0; b<=49; b++){
-            System.out.println(vet[b]);
-        }
+        System.out.println(a);
+        
         
     }
     public static boolean primo(int n){
