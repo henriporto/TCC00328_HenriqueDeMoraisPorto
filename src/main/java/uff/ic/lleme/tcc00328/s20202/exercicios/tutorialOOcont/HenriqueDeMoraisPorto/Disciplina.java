@@ -1,4 +1,4 @@
-package uff.ic.lleme.tcc00328.s20202.exercicios.tutorialOO.HenriqueDeMoraisPorto;
+package uff.ic.lleme.tcc00328.s20202.exercicios.tutorialOOcont.HenriqueDeMoraisPorto;
 public class Disciplina {
     private String codigo, nome, sigla;
     public Disciplina(String codigo, String sigla, String nome){

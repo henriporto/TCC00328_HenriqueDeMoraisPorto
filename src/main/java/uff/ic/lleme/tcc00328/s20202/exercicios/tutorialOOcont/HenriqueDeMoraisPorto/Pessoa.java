@@ -1,4 +1,4 @@
-package uff.ic.lleme.tcc00328.s20202.exercicios.tutorialOO.HenriqueDeMoraisPorto;
+package uff.ic.lleme.tcc00328.s20202.exercicios.tutorialOOcont.HenriqueDeMoraisPorto;
 public abstract class Pessoa {
     private String nome;
     private String cpf;

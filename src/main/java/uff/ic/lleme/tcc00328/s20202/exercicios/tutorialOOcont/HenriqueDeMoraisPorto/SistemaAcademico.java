@@ -1,4 +1,4 @@
-package uff.ic.lleme.tcc00328.s20202.exercicios.tutorialOO.HenriqueDeMoraisPorto;
+package uff.ic.lleme.tcc00328.s20202.exercicios.tutorialOOcont.HenriqueDeMoraisPorto;
 import java.util.Scanner;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,6 +9,7 @@ public class SistemaAcademico {
     public static Aluno[] alunos;
     public static Disciplina[] disciplinas;
     public static Inscricao[] inscricoes;
+    public static Turma[] turmas;
     public static void main(String[] args) throws IOException {
         System.out.println("   _____ _     _                         _____ _____    _    _ ______ ______  \n" +
 "  / ____(_)   | |                       |_   _|  __ \\  | |  | |  ____|  ____| \n" +
@@ -18,9 +19,10 @@ public class SistemaAcademico {
 " |_____/|_|___/\\__\\___|_| |_| |_|\\__,_| |_____|_____/   \\____/|_|    |_|      \n" +
 "                                                                              \n" +
 "                                                                              ");
-        String pasta = "src"+File.separator+"main"+File.separator+"java"+File.separator+"uff"+File.separator+"ic"+File.separator+"lleme"+File.separator+"tcc00328"+File.separator+"s20202"+File.separator+"exercicios"+File.separator+"tutorialOO"+File.separator+"HenriqueDeMoraisPorto"+File.separator;
+        String pasta = "src"+File.separator+"main"+File.separator+"java"+File.separator+"uff"+File.separator+"ic"+File.separator+"lleme"+File.separator+"tcc00328"+File.separator+"s20202"+File.separator+"exercicios"+File.separator+"tutorialOOcont"+File.separator+"HenriqueDeMoraisPorto"+File.separator;
         carregarAlunos(pasta + "arquivoAlunos.txt");
         carregarDisciplinas(pasta + "arquivoDisciplinas.txt");
+        carregarTurmas(pasta + "arquivoTurmas.txt");
         carregarInscricoes(pasta + "arquivoInscricoes.txt");
         informarNotasDeAlunos();
         calcularMedias();
@@ -74,20 +76,55 @@ public class SistemaAcademico {
         }
         buff.close();        
     }
+    public static void carregarTurmas(String nomeArquivo)throws IOException{
+        String linha;
+        int numero_turmas=0;
+        BufferedReader buff = new BufferedReader(new FileReader(nomeArquivo));
+        while(buff.readLine()!=null) numero_turmas++;
+        buff.close();
+        if(numero_turmas==0) return;
+        //aloco memoria pro vetor turmas
+        turmas = new Turma[numero_turmas];
+        //armazeno as turmas no vetor turmas
+        buff = new BufferedReader(new FileReader(nomeArquivo));
+        for(int i=0; i<numero_turmas; i++){
+            linha = buff.readLine();
+            //descodifica disciplinas das turmas
+            int PosicaoDisciplina;
+            for(PosicaoDisciplina=0; PosicaoDisciplina<disciplinas.length; PosicaoDisciplina++){
+                if(linha.split(" ")[1].equals(disciplinas[PosicaoDisciplina].getCodigo())){
+                    break;
+                }
+                if (PosicaoDisciplina == disciplinas.length - 1){
+                    System.out.println("carregarTurmas error (Turma not found)");
+                    buff.close();
+                    return;
+                }
+            }
+            Disciplina d = disciplinas[PosicaoDisciplina];
+            turmas[i]= new Turma(linha.split(" ")[0], d, Integer.parseInt(linha.split(" ")[2]), linha.split(" ")[3]);
+        }
+        //for(Turma a : turmas) {a.print();}
+        buff.close();
+    }
     public static void carregarInscricoes (String nomeArquivo)throws IOException{
         int num_inscricoes=0;
         String linha;
         BufferedReader buff = new BufferedReader(new FileReader(nomeArquivo));
         while(buff.readLine()!=null)num_inscricoes++;
         buff.close();
-        if(num_inscricoes==0) return;
+        
+        if(num_inscricoes==0) {
+            return;
+        }
+        
         buff = new BufferedReader(new FileReader(nomeArquivo));
         inscricoes = new Inscricao[num_inscricoes];
         for(int i=0; i<num_inscricoes; i++){
             linha = buff.readLine();
             String vetLinha[] = linha.split(" ");
             // 2 for para decodificar Disciplina e aluno
-            int PosicaoAluno, PosicaoDisciplina;
+            int PosicaoAluno, posicaoTurma;
             for(PosicaoAluno=0; PosicaoAluno<alunos.length; PosicaoAluno++){
                 if(vetLinha[1].equals(alunos[PosicaoAluno].getMatricula())){
                     break;
@@ -98,19 +135,19 @@ public class SistemaAcademico {
                     return;
                 }
             }
-            for(PosicaoDisciplina=0; PosicaoDisciplina<disciplinas.length; PosicaoDisciplina++){
-                if(vetLinha[0].equals(disciplinas[PosicaoDisciplina].getCodigo())){
+            for(posicaoTurma=0; posicaoTurma<turmas.length; posicaoTurma++){
+                if(vetLinha[0].equals(turmas[posicaoTurma].getCodigo())){
                     break;
                 }
-                if (PosicaoDisciplina == disciplinas.length - 1){
-                    System.out.println("carregarInscricoes error (Disciplina not found)");
+                if (posicaoTurma == turmas.length - 1){
+                    System.out.println("carregarInscricoes error (Turma not found)");
                     buff.close();
                     return;
                 }
             }
-            Disciplina d = disciplinas[PosicaoDisciplina];
+            Turma t = turmas[posicaoTurma];
             Aluno a = alunos[PosicaoAluno];
-            inscricoes[i] = new Inscricao(d, a, vetLinha[2]);
+            inscricoes[i] = new Inscricao(t, a, vetLinha[2]);
             
         }
         buff.close();
@@ -119,7 +156,7 @@ public class SistemaAcademico {
     public static void informarNotasDeAlunos(){
         Scanner in = new Scanner(System.in);
         for (Inscricao a : inscricoes) {
-            System.out.println("Digite o número de notas da disciplinas " + a.getDisciplina().getNome()+": ");
+            System.out.println("Digite o número de notas da disciplinas " + a.getTurma().getDisciplina().getNome()+": ");
             int j = in.nextInt();
             System.out.println("Escreva as notas do aluno: " + a.getAluno().getNome());
             double[] vetNotas = new double[j];

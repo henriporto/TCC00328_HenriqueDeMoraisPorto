@@ -1,14 +1,15 @@
-package uff.ic.lleme.tcc00328.s20202.exercicios.tutorialOO.HenriqueDeMoraisPorto;
+package uff.ic.lleme.tcc00328.s20202.exercicios.tutorialOOcont.HenriqueDeMoraisPorto;
 public class Inscricao {
     private Aluno aluno; 
     private String data_matricula;
     private String data_cancelamento=null;
-    private Disciplina disciplina;
+    //private Disciplina disciplina;
+    private Turma turma;
     double[] notas;
-    public Inscricao(Disciplina disciplina, Aluno aluno, String data_matricula){
+    public Inscricao(Turma turma, Aluno aluno, String data_matricula){
         this.aluno=aluno;
         this.data_matricula=data_matricula;
-        this.disciplina=disciplina;
+        this.turma=turma;
     }
 
     public Aluno getAluno() {
@@ -35,12 +36,12 @@ public class Inscricao {
         this.data_cancelamento = data_cancelamento;
     }
 
-    public Disciplina getDisciplina() {
-        return disciplina;
+    public Turma getTurma() {
+        return turma;
     }
 
-    public void setDisciplina(Disciplina disciplina) {
-        this.disciplina = disciplina;
+    public void setTurma(Turma turma) {
+        this.turma = turma;
     }
 
     public double[] getNotas() {
@@ -52,7 +53,7 @@ public class Inscricao {
     }
     
     public void print(){
-        System.out.println("Cadastro: "+aluno.getNome()+" Disciplina: "+disciplina.getNome()+" Data matricula: "+data_matricula+" Data cancelamento: "+data_cancelamento);
+        System.out.println("Cadastro: "+aluno.getNome()+" Disciplina: "+turma.getDisciplina()+" Turma: "+turma.getCodigo()+" Data matricula: "+data_matricula+" Data cancelamento: "+data_cancelamento);
         for(double a : notas){
             System.out.println("Nota: "+a);
         }

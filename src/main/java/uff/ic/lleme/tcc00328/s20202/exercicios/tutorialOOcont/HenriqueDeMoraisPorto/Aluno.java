@@ -1,4 +1,4 @@
-package uff.ic.lleme.tcc00328.s20202.exercicios.tutorialOO.HenriqueDeMoraisPorto;
+package uff.ic.lleme.tcc00328.s20202.exercicios.tutorialOOcont.HenriqueDeMoraisPorto;
 public class Aluno extends Pessoa {
     private String matricula, unidade;
     private Inscricao[] inscricoes;
