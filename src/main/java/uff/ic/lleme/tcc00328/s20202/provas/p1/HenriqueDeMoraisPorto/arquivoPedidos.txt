@@ -1,0 +1,11 @@
+2 pedidos
+2 feijao
+1 arroz a pimontese
+2 coquinha
+4 suco
+fim
+3 feijao
+4 arroz a pimontese
+5 coquinha
+0 suco
+fim
