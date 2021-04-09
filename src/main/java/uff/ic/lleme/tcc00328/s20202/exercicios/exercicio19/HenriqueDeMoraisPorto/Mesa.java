@@ -1,5 +1,5 @@
 
-package uff.ic.lleme.tcc00328.s20202.exercicios.exercicio19;
+package uff.ic.lleme.tcc00328.s20202.exercicios.exercicio19.HenriqueDeMoraisPorto;
 import java.util.Scanner;
 public class Mesa {
     int ponto=0;int soma;

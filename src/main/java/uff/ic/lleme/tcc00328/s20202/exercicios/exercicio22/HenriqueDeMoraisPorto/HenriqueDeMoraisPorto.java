@@ -1,4 +1,4 @@
-package uff.ic.lleme.tcc00328.s20202.exercicios.exercicio22;
+package uff.ic.lleme.tcc00328.s20202.exercicios.exercicio22.HenriqueDeMoraisPorto;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;

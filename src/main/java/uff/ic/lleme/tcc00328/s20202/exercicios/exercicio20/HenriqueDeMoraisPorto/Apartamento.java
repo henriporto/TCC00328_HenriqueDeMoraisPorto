@@ -1,4 +1,4 @@
-package uff.ic.lleme.tcc00328.s20202.exercicios.exercicio20;
+package uff.ic.lleme.tcc00328.s20202.exercicios.exercicio20.HenriqueDeMoraisPorto;
 
 public class Apartamento {
     protected static final int SIMPLES = 1;

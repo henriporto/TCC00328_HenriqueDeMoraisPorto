@@ -1,5 +1,5 @@
 
-package uff.ic.lleme.tcc00328.s20202.exercicios.exercicio20;
+package uff.ic.lleme.tcc00328.s20202.exercicios.exercicio20.HenriqueDeMoraisPorto;
 import java.util.Scanner;
 
 public class Hospedagem {

@@ -1,4 +1,4 @@
-package uff.ic.lleme.tcc00328.s20202.exercicios.exercicio22;
+package uff.ic.lleme.tcc00328.s20202.exercicios.exercicio22.HenriqueDeMoraisPorto;
 
 public class Escola {
     private int chave;
