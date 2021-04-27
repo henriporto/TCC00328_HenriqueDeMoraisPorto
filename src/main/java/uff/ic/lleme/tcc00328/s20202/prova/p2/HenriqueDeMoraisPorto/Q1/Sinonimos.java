@@ -3,18 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uff.ic.lleme.tcc00328.s20202.provas.p2.HenriqueDeMoraisPorto.Q1;
+package uff.ic.lleme.tcc00328.s20202.prova.p2.HenriqueDeMoraisPorto.Q1;
 
 import java.util.ArrayList;
 
 public class Sinonimos {
-   public String significado;
-   ArrayList<Palavra> palavras = new ArrayList<>();
-   
-   public Sinonimos(){
-       
-   }
-   public Sinonimos(String significado){
-       this.significado=significado;
-   }
+
+    public String significado;
+    ArrayList<Palavra> palavras = new ArrayList<>();
+
+    public Sinonimos() {
+
+    }
+
+    public Sinonimos(String significado) {
+        this.significado = significado;
+    }
 }
